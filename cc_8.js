@@ -17,47 +17,52 @@ console.log(calculateDiscount(100, 0.2)); //test data
 console.log(calculateDiscount(250, 0.15));
 
 // Task 3: arrow function. Service fee calculation scenario.
-const calculateServiceFee = (amount, serviceType) => {
-    if (serviceType === "Premium") {
-        fee = amount * 0.15;
-    } else if (serviceType === "Standard") {
-        fee = amount * 0.1;
-    } else {
-        fee = amount = 0.05;
+const calculateServiceFee = (amount, serviceType) => { //declare arrow function
+    if (serviceType === "Premium") { //if service type is premium, the following code will execute
+        fee = amount * 0.15; //the fee is 15 percent of the amount
+    } else if (serviceType === "Standard") { //if the service type is standard
+        fee = amount * 0.1; //the fee will be 10 percent of the amount
+    } else { //otherwise
+        fee = amount = 0.05; //the fee will be 5 percent of the amount
     };
 
-    return `Service Fee: $${fee.toFixed(2)}`;
+    return `Service Fee: $${fee.toFixed(2)}`; //returning the fee to two decimal places using template literals
     }; 
 
 
-console.log(calculateServiceFee(200, "Premium")); // Expected output: "Service Fee: $30.00"
+console.log(calculateServiceFee(200, "Premium")); //test data
 console.log(calculateServiceFee(500, "Standard"));
 
 // Task 4: parameters and arguments. Car rental cost calculation scenario.
-function calculateRentalCost(days, carType, insurance = false) {
-    if (carType === "Luxury") {
-        cost = days * 100;
-    } else if (carType === "Standard") {
-        cost = days * 60;
-    } else {
-        cost = days * 40;
+function calculateRentalCost(days, carType, insurance = false) { //declare function
+    if (carType === "Luxury") { //if type is luxury
+        cost = days * 100; //cost will be 100 dollars per day
+    } else if (carType === "Standard") { //if it is standard
+        cost = days * 60; //it is 60 dollars a day
+    } else { //otherwise
+        cost = days * 40; //it's 40 dollars a day
     };
 
-    if (insurance === true) {
-        cost += (20 * days);
+    if (insurance === true) { //if they got insurance
+        cost += (20 * days); //add 20 dollars times the nnumber of days to the total cost
     };
 
-    return `Total Rental Cost: $${cost.toFixed(2)}`;
+    return `Total Rental Cost: $${cost.toFixed(2)}`; //return the cost to two decimal places using template literals
 }
 
-console.log(calculateRentalCost(3, "Economy", true)); 
+console.log(calculateRentalCost(3, "Economy", true)); //test data
 console.log(calculateRentalCost(5, "Luxury", false));
 
-//Task 5: Returning values. Loan payment calculation scenario.
-function calculateLoanPayment(principal, rate, time) {
-    totalPayment = principal + (principal * rate * time);
-    return `Total Payment" $${totalPayment.toFixed(2)}`;
+// Task 5: Returning values. Loan payment calculation scenario.
+function calculateLoanPayment(principal, rate, time) { //declare function
+    totalPayment = principal + (principal * rate * time); //the formula to find the total payment, given the initial amount, interest rate, and time
+    return `Total Payment" $${totalPayment.toFixed(2)}`; //cost to two decimal places, template literals
 }
 
-console.log(calculateLoanPayment(1000, 0.05, 2));
+console.log(calculateLoanPayment(1000, 0.05, 2)); //test data
 console.log(calculateLoanPayment(5000, 0.07, 3));
+
+// Task 6: Higher-order functions. Identifying large transactions scenario.
+const transactions = [200, 1500, 3200, 800, 2500, 1300, 900]; //declare array
+const over1000 = transactions.filter(amnt => amnt >= 1000); //filter array and store it as a new array
+console.log(over1000); //log the filtered array
