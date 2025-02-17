@@ -66,3 +66,16 @@ console.log(calculateLoanPayment(5000, 0.07, 3));
 const transactions = [200, 1500, 3200, 800, 2500, 1300, 900]; //declare array
 const over1000 = transactions.filter(amnt => amnt >= 1000); //filter array and store it as a new array
 console.log(over1000); //log the filtered array
+
+// Task 7: Closures. Shopping Cart Tracker scenario.
+function createCartTracker() { //create function
+    let total = 0; //initialize variable "total"
+    return function(amnt) { //return a new function that takes the argument "amnt" for amount
+        total += amnt; //add the entered amount to the total
+        return total; //return the total
+    };
+}
+
+let cart = createCartTracker(); //create the function using our function
+console.log(cart(20)); //test data
+console.log(cart(35));
