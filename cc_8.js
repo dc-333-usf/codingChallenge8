@@ -79,3 +79,15 @@ function createCartTracker() { //create function
 let cart = createCartTracker(); //create the function using our function
 console.log(cart(20)); //test data
 console.log(cart(35));
+
+//Task 8: Recursion in JavaScript. Savings growth projection.
+function calculateSavings(years, amount) { //create function
+    if (years >= 10) { //if years are more than or equal to 10
+        return `Projected Savings: $${amount.toFixed(2)}`; //return the amount to two decimals
+    } else { //if years have not reached ten
+        return calculateSavings((years + 1), (amount * 1.05)); //return the function, adding one to years and 5 percent to the amount until years reach 10
+    };
+}
+
+console.log(calculateSavings(8, 1000)); //test data
+console.log(calculateSavings(5, 5000));
